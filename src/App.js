@@ -21,7 +21,16 @@ const downloadImageToFile = async () => {
 function App() {
 
 
+  const onShareNormal = useCallback(async () =>{
 
+
+    navigator.share({
+      title: 'title',
+      text: 'this is the description',
+      url: 'https://www.reddit.com/r/Miata/comments/lwry0g/first_car_first_time_refueling_first_car_wash_next/'
+    })
+
+  }, [])
 
 
   const onShare = useCallback(async () =>{
@@ -41,7 +50,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <button onClick={onShare}>Share</button>
+        <button onClick={onShareNormal}>Share</button>
       </header>
     </div>
   );
